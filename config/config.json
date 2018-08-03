@@ -1,23 +1,24 @@
 {
   "development": {
-    "username": "usr",
-    "password": "pswd",
-    "database": "hm-db",
+    "username": "corina",
+    "password": null,
+    "database": "hangulmasterdb",
     "host": "127.0.0.1",
-    "dialect": "pg"
+    "dialect": "postgres",
+    "operatorAliases": "Sequelize.Op"
   },
   "test": {
     "username": "root",
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
-    "dialect": "pg"
+    "dialect": "postgres"
   },
   "production": {
     "username": "root",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
-    "dialect": "pg"
+    "dialect": "postgres"
   }
 }
