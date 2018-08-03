@@ -1,24 +1,35 @@
-const koa = require('koa')
+const Koa = require('koa')
 const logger =  require('koa-morgan')
 const Router = require('koa-router')
 const bodyParser = require('koa-body')()
 
-const server = new koa()
+const models = require('./models')
+
+const server = new Koa()
 const router = new Router()
 
-router.get('/', ctx => {
-  ctx.body ='I AM ROOT! LULZ'
+router.get('/Users', async ctx => {
+  const users = await models.User.findAll()
+  ctx.body = {
+    users
+  }
 });
 
-router.get('/second_route', ctx => {
-  ctx.body = 'I AM second_route'
-})
-
-router.post('/something', ctx => {
+router.get('/users/:id', async ctx => {
+  const user = await models.User.findOne({ where: { id: ctx.params.id }})
   ctx.body = {
-    something: 'something here'
+    user
   }
 })
+
+router.post('/users', bodyParser, async ctx => {
+  const user =await models.User.create(ctx.request.body.user)
+    ctx.body = {
+    user
+  }
+})
+
+router.del
 
 server
   .use(logger('tiny'))
