@@ -1,10 +1,9 @@
 const koa = require('koa');
-const app = koa();
 
-app.use(ctx => {
-  ctx.body = 'HELLO FROM KOA.JS!';
-})
+const server = new koa();
 
-app.listen(3003, function() {
-  console.log('listening on port 3003...');
+server
+  .use(ctx => {
+  ctx.body = 'I AM YOUR FIRST KOA.JS API!!'
 })
+.listen(3001)
