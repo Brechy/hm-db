@@ -5,7 +5,6 @@ const bodyParser = require('koa-body')();
 const server = new Koa();
 
 const usersRouter = require('./routes/users');
-console.log(usersRouter);
 
 server
 	.use(logger('tiny'))
