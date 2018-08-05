@@ -1,6 +1,8 @@
 'use strict';
 module.exports = {
 	up: (queryInterface, Sequelize) => {
+		console.log('poop');
+
 		return queryInterface.createTable('Users', {
 			id: {
 				allowNull: false,

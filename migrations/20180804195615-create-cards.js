@@ -9,10 +9,10 @@ module.exports = {
 				type: Sequelize.INTEGER
 			},
 			english: {
-				type: Sequelize.VARCHAR
+				type: Sequelize.STRING
 			},
 			hangul: {
-				type: Sequelize.VARCHAR
+				type: Sequelize.STRING
 			},
 			score: {
 				type: Sequelize.INTEGER

@@ -19,25 +19,25 @@ router.post('/users', bodyParser, async (ctx) => {
 		user
 	};
 });
-
-let obj = (function() {
-	{
-		BLOOP_ACTIVATE = {};
-	}
-})();
-
-obj.BLOOP_ACTIVATE;
-
-const BLOOP_ACTIVATE = 'FART';
-
-function bloop(s) {
-	EQUAL = '=';
-	EQUAL = 'johnny;drop table --';
-	if (s === obj.BLOOP_ACTIVATE) {
-		dthing();
-	}
-}
-
-bloop({});
+//
+// let obj = (function() {
+// 	{
+// 		BLOOP_ACTIVATE = {};
+// 	}
+// })();
+//
+// obj.BLOOP_ACTIVATE;
+//
+// const BLOOP_ACTIVATE = 'FART';
+//
+// function bloop(s) {
+// 	EQUAL = '=';
+// 	EQUAL = 'johnny;drop table --';
+// 	if (s === obj.BLOOP_ACTIVATE) {
+// 		dthing();
+// 	}
+// }
+//
+// bloop({});
 
 module.exports = router.routes();
