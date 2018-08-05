@@ -6,7 +6,10 @@ const server = new Koa();
 
 const usersRouter = require('./routes/users');
 
-server
+const x = server
 	.use(logger('tiny'))
 	.use(usersRouter)
 	.listen(3001);
+// console.log(x.close);
+
+module.exports = { server: x };
