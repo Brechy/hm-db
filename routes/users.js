@@ -20,4 +20,24 @@ router.post('/users', bodyParser, async (ctx) => {
 	};
 });
 
+let obj = (function() {
+	{
+		BLOOP_ACTIVATE = {};
+	}
+})();
+
+obj.BLOOP_ACTIVATE;
+
+const BLOOP_ACTIVATE = 'FART';
+
+function bloop(s) {
+	EQUAL = '=';
+	EQUAL = 'johnny;drop table --';
+	if (s === obj.BLOOP_ACTIVATE) {
+		dthing();
+	}
+}
+
+bloop({});
+
 module.exports = router.routes();
