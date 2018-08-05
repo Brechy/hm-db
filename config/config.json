@@ -1,9 +1,0 @@
-{
-	"client": "postgres",
-	"connection": {
-		"host": "127.0.0.1",
-		"user": "corina",
-		"password": null,
-		"database": "hangulmasterdb"
-	}
-}
