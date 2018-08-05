@@ -15,7 +15,7 @@ describe('routes: server', () => {
 				.get('/')
 				.end((err, res, next) => {
 					should.not.exist(err);
-					res.status.should.eql(200);
+					res.status.should.equal(200);
 					res.body.status.should.equal('successfulness!');
 					done();
 				});
