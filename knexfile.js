@@ -4,7 +4,7 @@ const BASE_PATH = path.join(__dirname, 'src', 'server', 'db');
 module.exports = {
 	test: {
 		client: 'postgres',
-		connection: 'postgres://corina:@localhost:1337/hmdb',
+		connection: 'hmdatabse.cytcq4hrzcsy.us-west-1.rds.amazonaws.com',
 		migrations: {
 			directory: path.join(BASE_PATH, 'migrations')
 		},
@@ -15,7 +15,7 @@ module.exports = {
 
 	development: {
 		client: 'postgres',
-		connection: 'postgres://corina:@localhost:1337/hmdb',
+		connection: 'hmdatabse.cytcq4hrzcsy.us-west-1.rds.amazonaws.com',
 		migrations: {
 			directory: path.join(BASE_PATH, 'migrations')
 		},
