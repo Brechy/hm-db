@@ -8,7 +8,7 @@ chai.use(chaiHttp);
 const server = require('../server');
 
 describe('routes: server', () => {
-	describe('GET /', () => {
+	describe('GET localhost:1337/users', () => {
 		it('should return json', (done) => {
 			chai
 				.request(server)
