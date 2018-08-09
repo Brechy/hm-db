@@ -1,6 +1,7 @@
 const Koa = require('koa');
 const bodyParser = require('koa-bodyparser')();
 const logger = require('koa-morgan');
+const cors = require('@koa/cors');
 
 const usersRouter = require('./server/routes/users');
 const cardsRouter = require('./server/routes/cards');
@@ -9,6 +10,7 @@ require('dotenv').config();
 
 const app = new Koa();
 app.use(bodyParser);
+app.use(cors);
 app.use(async (ctx) => {
 	ctx.body = ctx.request.body;
 });
