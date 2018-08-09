@@ -10,7 +10,7 @@ require('dotenv').config();
 
 const app = new Koa();
 app.use(bodyParser);
-app.use(cors);
+app.use(cors());
 app.use(async (ctx) => {
 	ctx.body = ctx.request.body;
 });
