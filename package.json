@@ -23,6 +23,7 @@
 		"pg": "^7.4.3"
 	},
 	"devDependencies": {
+		"@koa/cors": "^2.2.2",
 		"chai": "^4.1.2",
 		"chai-http": "^4.0.0",
 		"knex": "^0.15.2",
