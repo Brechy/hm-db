@@ -6,12 +6,24 @@ const BASE_URL = '/cards';
 
 //get all cards from the database
 router.get(BASE_URL, async (ctx) => {
-	console.log('getpoop');
+	console.log('get all the poop');
 	try {
 		const cards = await queries.getAllCards();
 		ctx.body = {
 			status: 'success',
 			data: cards
+		};
+	} catch (err) {
+		console.log(err);
+	}
+});
+
+router.get(`${BASE_URL}/:id`, async (ctx) => {
+	try {
+		const card = await queries.getSingleCard(ctx.params.id);
+		ctx.body = {
+			status: 'success',
+			data: card
 		};
 	} catch (err) {
 		console.log(err);
