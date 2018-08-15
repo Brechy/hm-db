@@ -6,7 +6,6 @@ const BASE_URL = '/cards';
 
 //get all cards from the database
 router.get(BASE_URL, async (ctx) => {
-	console.log('get all the poop');
 	try {
 		const cards = await queries.getAllCards();
 		ctx.body = {
@@ -47,7 +46,6 @@ router.get('/translate/:en', async (ctx) => {
 
 //add single english/korean card to database/cards
 router.post(BASE_URL, async (ctx) => {
-	console.log('poop');
 	try {
 		const body = ctx.request.body;
 		const card = await queries.addSingleCard(ctx.request.body);
