@@ -67,29 +67,29 @@ router.post(BASE_URL, async (ctx) => {
 	}
 });
 
-router.delete(`${BASE_URL}/:id`, async(ctx) => {
+router.delete(`${BASE_URL}/:id`, async (ctx) => {
 	try {
-		const card = await queries.deleteCard(ctx.params.id)
-		if(movie.length) {
+		const card = await queries.deleteCard(ctx.params.id);
+		if (movie.length) {
 			ctx.status = 200;
 			ctx.body = {
 				status: 'success',
 				data: movie
-			}
+			};
 		} else {
-			ctx.status = 400
+			ctx.status = 400;
 			ctx.body = {
 				status: 'error',
-			message: 'That card does not exist'
+				message: 'That card does not exist'
+			};
 		}
-		}
-	} catch(err) {
+	} catch (err) {
 		ctx.status = 400;
 		ctx.body = {
 			status: 'error',
 			message: err.message || 'Sorry, an error has occurred'
-		}
+		};
 	}
-})
+});
 
 module.exports = router;
