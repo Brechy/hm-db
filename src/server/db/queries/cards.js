@@ -1,7 +1,9 @@
 const knex = require('../connection');
 
 addSingleCard = (card) => {
-	return knex('cards').insert(card);
+	return knex('cards')
+		.insert(card)
+		.returning('*');
 };
 
 getSingleCard = (card) => {
@@ -14,8 +16,16 @@ getAllCards = () => {
 	return knex('cards').select('*');
 };
 
+deleteCard = (id) => {
+	return knex('cards')
+		.del()
+		.where({ id: parseInt(id) })
+		.returning('*');
+};
+
 module.exports = {
 	addSingleCard,
 	getSingleCard,
-	getAllCards
+	getAllCards,
+	deleteCard
 };
