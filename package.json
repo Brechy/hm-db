@@ -4,31 +4,31 @@
 	"description": "",
 	"main": "src/server.js",
 	"scripts": {
-		"test": "mocha src/tests/*.js",
+		"test": "mocha ./src/tests/*.js -R nyan",
 		"start": "nodemon"
 	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Brechy/hm-db.git"
-	},
+	"repository": "git+https://github.com/Brechy/hm-db.git",
 	"keywords": [],
-	"author": "",
+	"author": "Brechin Andariese <brechin@brechy.net>",
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/Brechy/hm-db/issues"
 	},
 	"homepage": "https://github.com/Brechy/hm-db#readme",
 	"dependencies": {
+		"dotenv": "^6.0.0",
 		"koa": "^2.5.2",
-		"koa-body": "^4.0.4",
 		"koa-morgan": "^1.0.1",
 		"koa-router": "^7.4.0",
+		"node-fetch": "^2.2.0",
 		"pg": "^7.4.3"
 	},
 	"devDependencies": {
+		"@koa/cors": "^2.2.2",
 		"chai": "^4.1.2",
 		"chai-http": "^4.0.0",
 		"knex": "^0.15.2",
+		"koa-bodyparser": "^2.5.0",
 		"mocha": "^5.2.0",
 		"nodemon": "^1.18.3"
 	}
