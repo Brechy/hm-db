@@ -5,7 +5,7 @@ require('dotenv').config();
 module.exports = {
 	test: {
 		client: 'postgres',
-		connection: process.env.DB_CONNECTION,
+		connection: 'localhost',
 		migrations: {
 			directory: path.join(BASE_PATH, 'migrations')
 		},
@@ -16,7 +16,7 @@ module.exports = {
 
 	development: {
 		client: 'postgres',
-		connection: 'localhost',
+		connection: process.env.DB_CONNECTION,
 		migrations: {
 			directory: path.join(BASE_PATH, 'migrations')
 		},
