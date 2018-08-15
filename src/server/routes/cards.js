@@ -4,7 +4,38 @@ const queries = require('../db/queries/cards');
 const router = new Router();
 const BASE_URL = '/cards';
 
-router.post(`${BASE_URL}`, async (ctx) => {
+//get all cards from the database
+router.get(BASE_URL, async (ctx) => {
+	console.log('getpoop');
+	try {
+		const cards = await queries.getAllCards();
+		ctx.body = {
+			status: 'success',
+			data: cards
+		};
+	} catch (err) {
+		console.log(err);
+	}
+});
+
+//get translated korean word from Naver API
+router.get('/translate/:en', async (ctx) => {
+	fetch(NAVER_API, {
+		method: 'POST',
+		body: `source=en&target=ko&text=${encodeURIComponent(english)}`,
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+			'X-Naver-Client-Id': NAVER_CLIENT_ID,
+			'X-Naver-Client-Secret': NAVER_CLIENT_SECRET
+		}
+	})
+		.then((res) => res.json())
+		.then((json) => console.log(json));
+});
+
+//add single english/korean card to database/cards
+router.post(BASE_URL, async (ctx) => {
+	console.log('poop');
 	try {
 		const body = ctx.request.body;
 		const card = await queries.addSingleCard(ctx.request.body);
