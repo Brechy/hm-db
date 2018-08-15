@@ -30,7 +30,7 @@ router.get(`${BASE_URL}/:id`, async (ctx) => {
 });
 
 //get translated korean word from Naver API
-router.get('/translate/:en', async (ctx) => {
+router.get('post /translate', async (ctx) => {
 	fetch(NAVER_API, {
 		method: 'POST',
 		body: `source=en&target=ko&text=${encodeURIComponent(english)}`,
