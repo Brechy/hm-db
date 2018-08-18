@@ -1,5 +1,6 @@
 const Router = require('koa-router');
 const queries = require('../db/queries/cards');
+const fetch = require('node-fetch');
 
 const router = new Router();
 const BASE_URL = '/cards';
@@ -30,18 +31,25 @@ router.get(`${BASE_URL}/:id`, async (ctx) => {
 });
 
 //get translated korean word from Naver API
-router.get('post /translate', async (ctx) => {
-	fetch(NAVER_API, {
+router.get(`${BASE_URL}/translate/:english`, async (ctx) => {
+	let response = await fetch(process.env.NAVER_API, {
 		method: 'POST',
-		body: `source=en&target=ko&text=${encodeURIComponent(english)}`,
+		body: `source=en&target=ko&text=${encodeURIComponent(ctx.params.english)}`,
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-			'X-Naver-Client-Id': NAVER_CLIENT_ID,
-			'X-Naver-Client-Secret': NAVER_CLIENT_SECRET
+			'X-Naver-Client-Id': process.env.NAVER_CLIENT_ID,
+			'X-Naver-Client-Secret': process.env.NAVER_CLIENT_SECRET
 		}
-	})
-		.then((res) => res.json())
-		.then((json) => console.log(json));
+	});
+	let json = await response.json();
+
+	console.log(json);
+	ctx.status = 200;
+	ctx.body = {
+		status: 'success',
+		english: ctx.params.english,
+		hangul: json.message.result.translatedText
+	};
 });
 
 //add single english/korean card to database/cards
