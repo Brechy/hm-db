@@ -6,7 +6,7 @@ const router = new Router();
 const BASE_URL = '/cards';
 
 //get all cards from the database
-router.get(BASE_URL, async (ctx) => {
+router.get(`${BASE_URL}`, async (ctx) => {
 	try {
 		const cards = await queries.getAllCards();
 		ctx.body = {
