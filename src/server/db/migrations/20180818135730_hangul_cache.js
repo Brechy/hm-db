@@ -1,8 +1,7 @@
 exports.up = function(knex, Promise) {
 	return knex.schema.createTable('hangul_cache', (table) => {
-		table.increments();
-		table.string('english').notNullable();
-		table.string('hangul').notNullable();
+		table.string('english').primary().notNullable();
+		table.string('hangul');
 		table.timestamps(true, true);
 	});
 };
