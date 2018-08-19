@@ -6,7 +6,7 @@ addSingleCard = (card) => {
 		.returning('*');
 };
 
-getSingleCard = (card) => {
+getSingleCard = (id) => {
 	return knex('cards')
 		.select('*')
 		.where({ id: parseInt(id) });
