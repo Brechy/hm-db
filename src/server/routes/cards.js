@@ -1,6 +1,7 @@
 const Router = require('koa-router');
 const queries = require('../db/queries/cards');
 const fetch = require('node-fetch');
+const cached = require('../db/queries/cached.js');
 
 const router = new Router();
 const BASE_URL = '/cards';
@@ -31,7 +32,19 @@ router.get(`${BASE_URL}/:id`, async (ctx) => {
 });
 
 //get translated korean word from Naver API
+//check cached db table for existing translations
 router.get(`${BASE_URL}/translate/:english`, async (ctx) => {
+	let cachedTranslation = await cached.getSingleWord(ctx.params.english);
+	if(cachedTranslation) {
+		ctx.status = 200;
+		ctx.body = {
+			status: 'success',
+			english: ctx.params.english,
+			hangul: cachedTranslation.hangul,
+			cached: 'This is a cached result'
+		}
+		return;
+	}
 	let response = await fetch(process.env.NAVER_API, {
 		method: 'POST',
 		body: `source=en&target=ko&text=${encodeURIComponent(ctx.params.english)}`,
@@ -42,13 +55,16 @@ router.get(`${BASE_URL}/translate/:english`, async (ctx) => {
 		}
 	});
 	let json = await response.json();
+	//save translated response to cache for later use
+	await cached.addSingleWord(ctx.params.english, json.message.result.translatedText);
 
 	console.log(json);
 	ctx.status = 200;
 	ctx.body = {
 		status: 'success',
 		english: ctx.params.english,
-		hangul: json.message.result.translatedText
+		hangul: json.message.result.translatedText,
+		cached: 'This is a Naver result'
 	};
 });
 
