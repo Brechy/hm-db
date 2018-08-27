@@ -1,2 +1,5 @@
 /node_modules
 /.env
+pg_hmdb_data
+start.sh
+build.sh
