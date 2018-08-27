@@ -21,14 +21,14 @@
 		"koa-morgan": "^1.0.1",
 		"koa-router": "^7.4.0",
 		"node-fetch": "^2.2.0",
+		"koa-bodyparser": "^2.5.0",
+		"@koa/cors": "^2.2.2",
+		"knex": "^0.15.2",
 		"pg": "^7.4.3"
 	},
 	"devDependencies": {
-		"@koa/cors": "^2.2.2",
 		"chai": "^4.1.2",
 		"chai-http": "^4.0.0",
-		"knex": "^0.15.2",
-		"koa-bodyparser": "^2.5.0",
 		"mocha": "^5.2.0",
 		"nodemon": "^1.18.3"
 	}
