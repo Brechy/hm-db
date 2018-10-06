@@ -5,20 +5,20 @@ exports.seed = (knex, Promise) => {
 		.then(() => {
 			// Inserts seed entries
 			return knex('users').insert({
-				id: 1,
-				user: 'brechin'
+				username: 'brechin',
+				password: 'supersecret1'
 			});
 		})
 		.then(() => {
 			return knex('users').insert({
-				id: 2,
-				user: 'tedothy'
+				username: 'tedothy',
+				password: 'safeNsecure'
 			});
 		})
 		.then(() => {
 			return knex('users').insert({
-				id: 3,
-				user: 'barb_kellner'
+				username: 'barb_kellner',
+				password: 'pizzaeater'
 			});
 		});
 };
