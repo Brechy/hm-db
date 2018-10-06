@@ -1,7 +1,7 @@
 const Router = require('koa-router');
-const router = new Router();
 const queries = require('../db/queries/users');
 
+const router = new Router();
 
 router.get('/users', async (ctx) => {
 	try {
@@ -18,8 +18,9 @@ router.get('/users', async (ctx) => {
 router.post('/users', async (ctx) => {
 	try {
 		const body = ctx.request.body;
-		const user = await queries.addSingleUser(ctx.request.body);
-		if (card.length) {
+		console.log(ctx.request.body)
+		const users = await queries.addSingleUser(ctx.request.body);
+		if (users.length) {
 			ctx.status = 201;
 			ctx.body = {
 				status: 'success',
@@ -28,7 +29,7 @@ router.post('/users', async (ctx) => {
 			ctx.status = 400;
 			ctx.body = {
 				status: 'error',
-				message: `Something went wrong ${JSON.stringify(user)}`
+				message: `Something went wrong ${JSON.stringify(users)}`
 			};
 		}
 	} catch (err) {
