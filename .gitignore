@@ -3,3 +3,4 @@
 pg_hmdb_data
 start.sh
 build.sh
+migrate.sh
