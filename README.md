@@ -1,6 +1,6 @@
-# Hangul Master Server/API
+# Hangul Master Server
 
-API built for the Hangul Master web app. Handles all API calls for the front end and for the third party translation API.
+Server built for the Hangul Master web app. Handles all calls for the front end and for the third party translation API.
 
 ## Built With
 
