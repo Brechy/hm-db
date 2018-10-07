@@ -12,6 +12,8 @@ const app = new Koa();
 app.use(bodyParser);
 app.use(cors());
 
+console.log(process.env.PRIVATE_KEY)
+
 const PORT = process.env.PORT || 1337;
 
 app.use(usersRouter.routes());
