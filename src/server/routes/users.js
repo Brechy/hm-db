@@ -1,12 +1,14 @@
 const Router = require('koa-router');
 const queries = require('../db/queries/users');
+const jwt = require('jsonwebtoken');
 
 const router = new Router();
 
 //post login user
 router.post('/login', async (ctx) => {
   try {
-    const valid = await queries.validateUser();
+		const body = ctx.request.body;
+    const valid = await queries.validateUser(body.username, body.password);
     if (!valid) {
       ctx.body = {
         status: 'failure'
@@ -15,15 +17,13 @@ router.post('/login', async (ctx) => {
     }
     //generate jwt
 		const cert = process.env.PRIVATE_KEY
-    const jwt = jwt.sign({ username:user.username }, cert, {
+
+		const supesLegit = jwt.sign({ username: body.username }, cert, {
       algorithm: 'RS256'
-    },
-		function(err, token) {
-      console.log(token);
     });
     ctx.body = {
       status: 'success',
-      data: jwt
+      data: supesLegit
     }
   } catch (err) {
     console.log(err)
