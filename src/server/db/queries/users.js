@@ -2,23 +2,27 @@ const knex = require('../connection');
 const bcrypt = require('bcrypt');
 
 const validateUser = async (username, password) => {
-	//hash password
-	const hashedPassword = await new Promise((resolve, reject) => {
-		bcrypt.hash(password, 9, function(err, hash) {
-			if(err) {
-				reject(err)
-				return
+  const dbHash = await knex('users')
+	.select('password')
+	.where({username: username});
+
+  console.log(dbHash);
+	if(dbHash.length === 0) {
+    console.log('No users match')
+		return false
+	}
+	const legit = await new Promise((resolve, reject) => {
+		bcrypt.compare(password, dbHash[0].password, function(err, res) {
+			if(res) {
+				console.log('Passwords match!', res)
+				resolve(true)
+			} else {
+				console.log('Passwords DO NOT match...', res)
+				resolve(false)
 			}
-			resolve(hash)
 		})
 	})
-	const legit = await knex('users')
-	.select('*')
-	.where({
-		username: username,
-		password: hashedPassword,
-	})
-	console.log(legit)
+	return legit
 }
 
 const addSingleUser = async (user) => {
@@ -64,6 +68,7 @@ deleteUser = (id) => {
 };
 
 module.exports = {
+	validateUser,
   addSingleUser,
   getAllUsers,
   deleteUser
