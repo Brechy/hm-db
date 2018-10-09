@@ -2,8 +2,6 @@ process.env.NODE_ENV = 'test';
 
 const chai = require('chai');
 const should = chai.should();
-const chaiHttp = require('chai-http');
-chai.use(chaiHttp);
 
 const server = require('../server');
 const knex = require('../server/db/connection');
@@ -42,24 +40,23 @@ describe('routes: cards', () => {
 	});
 });
 
-//getAllCards test
-//post english/hangul card to database
-// describe('POST /cards', () => {
-// 	it('should return the card that was added', (done) => {
-// 		chai
-// 			.request(server)
-// 			.post('/cards')
-// 			.send({
-// 				english: 'Hello',
-// 				hangul: '여보세요',
-// 				score: '5'
-// 			})
-// 			.end((err, res) => {
-// 				should.not.exist(err);
-// 				res.status.should.equal(200);
-// 				res.type.should.equal('application/json');
-// 				res.body.status.should.eql('success');
-// 				done();
-// 			});
-// 	});
-// });
+// post english/hangul card to database
+describe('POST /cards', () => {
+	it('should return the card that was added', (done) => {
+		chai
+			.request(server)
+			.post('/cards')
+			.send({
+				english: 'Hello',
+				hangul: '여보세요',
+				score: '5'
+			})
+			.end((err, res) => {
+				should.not.exist(err);
+				res.status.should.equal(200);
+				res.type.should.equal('application/json');
+				res.body.status.should.eql('success');
+				done();
+			});
+	});
+});
