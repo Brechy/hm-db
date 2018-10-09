@@ -6,7 +6,6 @@ const validateUser = async (username, password) => {
 	.select('password')
 	.where({username: username});
 
-  console.log(dbHash);
 	if(dbHash.length === 0) {
     console.log('No users match')
 		return false
@@ -29,8 +28,6 @@ const addSingleUser = async (user) => {
 
   const password = user.password;
 	const username = user.username;
-	console.log("I am the password", password)
-	console.log("I am the username", username)
 
   const hashedPass = await new Promise((resolve, reject) => {
 		bcrypt.hash(password, 9, function(err, hash) {
