@@ -42,6 +42,17 @@ router.get('/users', async (ctx) => {
   }
 });
 
+router.delete('/users', async (ctx) => {
+	try {
+		const remove = await queries.deleteUser();
+		ctx.body = {
+			status: 'success'
+		}
+	} catch (err) {
+		console.log(err);
+	}
+});
+
 router.post('/users', async (ctx) => {
   try {
     const body = ctx.request.body;
