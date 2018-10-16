@@ -9,6 +9,7 @@ const cardsRouter = require('./server/routes/cards');
 require('dotenv').config();
 
 const app = new Koa();
+app.use(logger());
 app.use(bodyParser);
 app.use(cors());
 

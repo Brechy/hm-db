@@ -6,6 +6,7 @@ const router = new Router();
 
 //post login user
 router.post('/login', async (ctx) => {
+  console.log('>>> This is me trying to post to /login')
   try {
 		const body = ctx.request.body;
     const valid = await queries.validateUser(body.username, body.password);
