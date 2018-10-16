@@ -1,38 +1,38 @@
 {
-	"name": "hm-db",
-	"version": "1.0.0",
-	"description": "",
-	"main": "src/server.js",
-	"scripts": {
-		"test": "mocha ./src/tests/*.js -R nyan",
-		"start": "nodemon"
-	},
-	"repository": "git+https://github.com/Brechy/hm-db.git",
-	"keywords": [],
-	"author": "Brechin Andariese <brechin@brechy.net>",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/Brechy/hm-db/issues"
-	},
-	"homepage": "https://github.com/Brechy/hm-db#readme",
-	"dependencies": {
-		"@koa/cors": "^2.2.2",
-		"bcrypt": "^3.0.1",
-		"chai-http": "^4.2.0",
-		"dotenv": "^6.0.0",
-		"jsonwebtoken": "^8.3.0",
-		"knex": "^0.15.2",
-		"koa": "^2.5.2",
-		"koa-bodyparser": "^2.5.0",
-		"koa-logger": "^3.2.0",
-		"koa-morgan": "^1.0.1",
-		"koa-router": "^7.4.0",
-		"node-fetch": "^2.2.0",
-		"pg": "^7.4.3"
-	},
-	"devDependencies": {
-		"chai": "^4.1.2",
-		"mocha": "^5.2.0",
-		"nodemon": "^1.18.3"
-	}
+  "name": "hm-db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "mocha ./src/tests/*.js -R nyan",
+    "start": "nodemon"
+  },
+  "repository": "git+https://github.com/Brechy/hm-db.git",
+  "keywords": [],
+  "author": "Brechin Andariese <brechin@brechy.net>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brechy/hm-db/issues"
+  },
+  "homepage": "https://github.com/Brechy/hm-db#readme",
+  "dependencies": {
+    "@koa/cors": "^2.2.2",
+    "bcrypt": "^3.0.1",
+    "chai-http": "^4.2.0",
+    "dotenv": "^6.0.0",
+    "jsonwebtoken": "^8.3.0",
+    "knex": "^0.15.2",
+    "koa": "^2.5.2",
+    "koa-bodyparser": "^2.5.0",
+    "koa-logger": "^3.2.0",
+    "koa-morgan": "^1.0.1",
+    "koa-router": "^7.4.0",
+    "node-fetch": "^2.2.0",
+    "pg": "^7.4.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.3"
+  }
 }
