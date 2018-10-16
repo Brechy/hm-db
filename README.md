@@ -13,5 +13,7 @@ Server built for the Hangul Master web app. Handles all calls for the front end 
 
 - **Brechin Andariese** - [Brechy](https://github.com/Brechy)
 
+## Contributors
 
+- **Carl Corsini** - [carlcorsini](https://github.com/carlcorsini)
 
