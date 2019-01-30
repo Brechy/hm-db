@@ -23,7 +23,7 @@ module.exports = {
     client: 'postgres',
     connection: {
       host: 'localhost',
-      database: 'hm-db'
+      database: 'hmdb'
     },
     migrations: {
       directory: path.join(BASE_PATH, 'migrations')
