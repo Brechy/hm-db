@@ -17,7 +17,7 @@
   "homepage": "https://github.com/Brechy/hm-db#readme",
   "dependencies": {
     "@koa/cors": "^2.2.2",
-    "bcrypt": "^3.0.1",
+    "bcrypt": "^5.0.0",
     "chai-http": "^4.2.0",
     "dotenv": "^6.0.0",
     "jsonwebtoken": "^8.3.0",
